@@ -1,272 +1,357 @@
 <!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Happy Birthday Melati 💖</title>
+<title>Happy Birthday Melati 💖</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
-        <style>
-            *{
-                margin:0;
-                padding:0;
-                box-sizing:border-box;
-                font-family:'Poppins',sans-serif;
-            }
+<style>
 
-            body{
-                background:linear-gradient(
-                    135deg,
-                    #ffd6e8,
-                    #ffc8dd,
-                    #ffb3d9
-                );
-                overflow:hidden;
-            }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-            .swiper{
-                width:100vw;
-                height:100vh;
-            }
+body{
+background:linear-gradient(135deg,#ffd6e8,#ffc5dd,#ffb4d3);
+overflow:hidden;
+height:100vh;
+}
 
-            .swiper-slide{
-                display:flex;
-                flex-direction:column;
-                justify-content:center;
-                align-items:center;
-                padding:30px;
-                text-align:center;
-            }
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+transition:.8s;
+}
 
-            .card{
-                background:rgba(255,255,255,0.35);
-                backdrop-filter:blur(12px);
-                border-radius:30px;
-                padding:30px;
-                max-width:700px;
-                width:100%;
-                box-shadow:0 10px 40px rgba(0,0,0,.12);
-            }
+.hidden{
+opacity:0;
+pointer-events:none;
+}
 
-            .photo{
-                width:240px;
-                height:240px;
-                object-fit:cover;
-                border-radius:25px;
-                margin-bottom:20px;
-                box-shadow:0 10px 30px rgba(0,0,0,.15);
-            }
+#intro h1{
+font-size:70px;
+}
 
-            h1{
-                color:#ff2f92;
-                font-size:3rem;
-                margin-bottom:10px;
-            }
+#intro p{
+margin-top:20px;
+font-size:20px;
+font-weight:600;
+color:#ff2d8d;
+}
 
-            h2{
-                color:#ff2f92;
-                margin-bottom:15px;
-            }
+.envelope{
+font-size:120px;
+cursor:pointer;
+animation:float 2s ease-in-out infinite;
+}
 
-            p{
-                color:#444;
-                line-height:1.9;
-                font-size:1rem;
-                white-space:pre-line;
-            }
+@keyframes float{
+50%{
+transform:translateY(-10px);
+}
+}
 
-            .swipe-hint{
-                position:absolute;
-                bottom:25px;
-                left:50%;
-                transform:translateX(-50%);
-                color:#ff2f92;
-                font-weight:600;
-                animation:bounce 1.5s infinite;
-            }
+.photo{
+width:280px;
+height:280px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+cursor:pointer;
+}
 
-            @keyframes bounce{
-                50%{
-                    transform:translateX(-50%) translateY(-8px);
-                }
-            }
+.tap{
+margin-top:20px;
+font-size:20px;
+color:#ff2d8d;
+font-weight:600;
+animation:pulse 1.5s infinite;
+}
 
-            .ribbon{
-                font-size:70px;
-                animation:float 3s ease-in-out infinite;
-            }
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
 
-            @keyframes float{
-                50%{
-                    transform:translateY(-10px);
-                }
-            }
+.swiper{
+width:100%;
+height:100%;
+background:#fff7fb;
+}
 
-            .end-heart{
-                font-size:80px;
-                animation:pulse 1.2s infinite;
-            }
+.swiper-slide{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
 
-            @keyframes pulse{
-                50%{
-                    transform:scale(1.15);
-                }
-            }
+.card{
+max-width:700px;
+background:white;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+text-align:center;
+}
 
-            .sparkle{
-                position:absolute;
-                color:white;
-                pointer-events:none;
-                animation:rise linear infinite;
-            }
+.card h2{
+color:#ff2d8d;
+margin-bottom:20px;
+}
 
-            @keyframes rise{
-                from{
-                    transform:translateY(100vh);
-                    opacity:0;
-                }
-                to{
-                    transform:translateY(-100px);
-                    opacity:1;
-                }
-            }
-        </style>
-    </head>
+.card p{
+line-height:1.8;
+color:#444;
+font-size:18px;
+}
 
-    <body>
-        <div id="sparkles"></div>
+.final h1{
+font-size:60px;
+color:#ff2d8d;
+}
 
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
+.final p{
+margin-top:15px;
+font-size:22px;
+}
 
-                <!-- Slide 1 -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="ribbon">🎀</div>
-                        <img src="Melati.jpeg" class="photo">
-                        <h1>Happy Birthday<br>Melati 💖</h1>
-                        <p>
-                            Someone has a special message for you ✨
-                        </p>
-                    </div>
+.sparkle{
+position:absolute;
+color:white;
+animation:rise linear infinite;
+}
 
-                    <div class="swipe-hint">
-                        Swipe ➜
-                    </div>
+@keyframes rise{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-100px);
+}
+}
 
-                </div>
+</style>
 
-                <!-- Slide 2 -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <h1>🎂✨</h1>
-                        <h2>Pibirthday, little one!</h2>
-                    </div>
-                </div>
+</head>
+<body>
 
-                <!-- Slide 3 -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <p>
-                        Another year older, another year brighter.
+<div id="intro" class="screen">
 
-                        Sehat selalu dimanapun yu berada.
+<h1>🎀</h1>
 
-                        Semoga di umur yang baru ini, yu selalu dikelilingi kebahagiaan dan orang-orang baik disekitarmu.
+<p>Tap Anywhere To Open</p>
 
-                        Keep being the kind, funny, and amazing person that you are.
+</div>
 
-                        Grow beautifully, dream fearlessly, and never stop shining.
+<div id="envelopeScreen" class="screen hidden">
 
-                        So proud of you, always.
-                        </p>
-                    </div>
-                </div>
+<div class="envelope" onclick="openEnvelope()">
+💌
+</div>
 
-                <!-- Slide 4 -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <p>
-                        Maaf nggak bisa sweet talk, aing bukan word affirmation.
+<p class="tap">Open The Letter</p>
 
-                        Maaf juga buat ketegangan beberapa tahun terakhir, my fault itu berimbas kesemua orang.
+</div>
 
-                        Dont worry aing sadar dengan kesalahan itu.
+<div id="photoScreen" class="screen hidden">
 
-                        I deeply apologized for what happen.
-                        </p>
-                    </div>
-                </div>
+<img src="melati.jpg" class="photo" onclick="showLetter()">
 
-                <!-- Slide 5 -->
-                <div class="swiper-slide">
-                    <div class="card">
+<div class="tap">
+Tap The Photo 📸
+</div>
 
-                        <p>
-                        Thanks btw.
+</div>
 
-                        Tetap terus melangkah kedepan apapun rintangannya.
+<div id="letterScreen" class="hidden">
 
-                        Hope you always be happy.
+<div class="swiper mySwiper">
 
-                        Lop you, hehe. 💖
-                        </p>
-                    </div>
-                </div>
+<div class="swiper-wrapper">
 
-                <!-- Slide 6 -->
-                <div class="swiper-slide">
-                    <div class="card">
-                        <div class="end-heart">💖</div>
-                        <h1>Happy Birthday<br>Melati</h1>
-                        <p>
-                            Thank you for being you.
-                            Stay happy and keep shining ✨
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="swiper-slide">
+<div class="card">
+<h2>Pibirthday, little one! 🎂✨</h2>
+</div>
+</div>
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-        <script>
-            new Swiper(".mySwiper",{
-                effect:"cards",
-                grabCursor:true
-            });
+<div class="swiper-slide">
+<div class="card">
+<p>
+Another year older, another year brighter.
 
-            confetti({
-                particleCount:250,
-                spread:180,
-                origin:{y:0.6}
-            });
+Sehat selalu dimanapun yu berada.
 
-            for(let i=0;i<40;i++){
+Semoga di umur yang baru ini, yu selalu dikelilingi kebahagiaan dan orang-orang baik disekitarmu.
 
-                const sparkle=document.createElement("div");
+</p>
+</div>
+</div>
 
-                sparkle.className="sparkle";
-                sparkle.innerHTML="✨";
+<div class="swiper-slide">
+<div class="card">
+<p>
+Keep being the kind, funny, and amazing person that you are.
 
-                sparkle.style.left=Math.random()*100+"%";
+Grow beautifully, dream fearlessly, and never stop shining.
 
-                sparkle.style.fontSize=
-                    (10+Math.random()*20)+"px";
+So proud of you, always.
 
-                sparkle.style.animationDuration=
-                    (6+Math.random()*8)+"s";
+</p>
+</div>
+</div>
 
-                document.body.appendChild(sparkle);
-            }
-        </script>
-        </body>
+<div class="swiper-slide">
+<div class="card">
+<p>
+Maaf nggak bisa sweet talk, aing bukan word affirmation.
+
+Maaf juga buat ketegangan beberapa tahun terakhir, my fault itu berimbas kesemua orang.
+
+</p>
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="card">
+<p>
+Dont worry aing sadar dengan kesalahan itu.
+
+I deeply apologized for what happen.
+
+</p>
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="card">
+<p>
+Thanks btw.
+
+Tetap terus melangkah kedepan apapun rintangannya.
+
+</p>
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="card">
+<p>
+Hope you always be happy.
+
+Lop you, hehe. 💖
+
+</p>
+</div>
+</div>
+
+<div class="swiper-slide">
+<div class="card final">
+<h1>Happy Birthday<br>Melati 💖</h1>
+<p>
+Thank you for being you ✨
+</p>
+</div>
+</div>
+
+</div>
+
+<div class="swiper-pagination"></div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+
+for(let i=0;i<40;i++){
+
+const s=document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left=Math.random()*100+"%";
+
+s.style.animationDuration=
+(6+Math.random()*6)+"s";
+
+document.body.appendChild(s);
+
+}
+
+document.getElementById("intro")
+.addEventListener("click",()=>{
+
+document.getElementById("intro")
+.classList.add("hidden");
+
+document.getElementById("envelopeScreen")
+.classList.remove("hidden");
+
+});
+
+function openEnvelope(){
+
+confetti({
+particleCount:200,
+spread:180
+});
+
+document.getElementById("envelopeScreen")
+.classList.add("hidden");
+
+document.getElementById("photoScreen")
+.classList.remove("hidden");
+
+}
+
+function showLetter(){
+
+document.getElementById("photoScreen")
+.classList.add("hidden");
+
+document.getElementById("letterScreen")
+.classList.remove("hidden");
+
+new Swiper(".mySwiper",{
+
+pagination:{
+el:".swiper-pagination",
+},
+
+speed:700,
+
+});
+
+}
+
+</script>
+
+</body>
 </html>
